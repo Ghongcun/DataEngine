@@ -77,32 +77,36 @@ def create_word_cloud(f):
     plt.show()
 
 
-dataset = pd.read_csv("Market_Basket_Optimisation.csv", header = None)
-#print(dataset)
-#dataset.to_csv("collect.csv")
-
-
-# Condition1
-data = ""
-datalist = []
-for i in range(0, dataset.shape[0]):
-    for j in range(0, dataset.shape[1]):
-        if str(dataset.values[i, j]) != "nan":
-            data += str(dataset.values[i, j])
-            data += " "
-            datalist.append(str(dataset.values[i, j]))
-
-create_visual_show(datalist)
-
-'''
-# Condition2
-data = []
-for i in range(0, dataset.shape[0]):
-    for j in range(0, dataset.shape[1]):
-        if str(dataset.values[i, j]) != "nan":
-            data.append(str(dataset.values[i, j]))
-            
-'''
-#print(data)
-
-create_word_cloud(data)
+def main():
+    dataset = pd.read_csv("Market_Basket_Optimisation.csv", header = None)
+    #print(dataset)
+    #dataset.to_csv("collect.csv")
+    
+    
+    # Condition1
+    data = ""
+    datalist = []
+    for i in range(0, dataset.shape[0]):
+        for j in range(0, dataset.shape[1]):
+            if str(dataset.values[i, j]) != "nan":
+                data += str(dataset.values[i, j])
+                data += " "
+                datalist.append(str(dataset.values[i, j]))
+    
+    create_visual_show(datalist)
+    
+    '''
+    # Condition2
+    data = []
+    for i in range(0, dataset.shape[0]):
+        for j in range(0, dataset.shape[1]):
+            if str(dataset.values[i, j]) != "nan":
+                data.append(str(dataset.values[i, j]))
+                
+    '''
+    #print(data)
+    
+    create_word_cloud(data)
+    
+if __name__ == '__main__':
+    main()
